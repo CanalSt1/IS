@@ -1,0 +1,48 @@
+[System]
+Name='automobilKocenjeBrzinaUdaljenost'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Udaljenost'
+Range=[10 150]
+NumMFs=3
+MF1='mala':'trapmf',[-0.0006667 10 30 40.01]
+MF2='srednja':'trapmf',[30 45 65 80]
+MF3='velika':'trapmf',[70 80 150 199.9]
+
+[Input2]
+Name='Brzina'
+Range=[10 100]
+NumMFs=3
+MF1='mala':'trapmf',[3.571 6.786 13.21 16.43]
+MF2='srednja':'trapmf',[13.21 19.64 77.5 83.93]
+MF3='velika':'trapmf',[80.71 87.14 125.7 132.1]
+
+[Output1]
+Name='Kocenje'
+Range=[0 10]
+NumMFs=4
+MF1='Lagano':'trimf',[-2 0 2]
+MF2='snazno':'trimf',[5 7 9]
+MF3='jako_snazno':'trimf',[8 10 12]
+MF4='umjereno':'trimf',[1 3.5 6]
+
+[Rules]
+3 3, 4 (1) : 1
+3 2, 4 (1) : 1
+3 1, 1 (1) : 1
+2 3, 2 (1) : 1
+2 2, 4 (1) : 1
+2 1, 1 (1) : 1
+1 3, 3 (1) : 1
+1 2, 2 (1) : 1
+1 1, 4 (1) : 1

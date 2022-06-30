@@ -1,0 +1,10 @@
+m=str2double(get(handles.edit1,'string'));
+k=str2double(get(handles.edit2,'string'));
+z=str2double(get(handles.edit3,'string'));
+assignin('base','m',m);
+assignin('base','k',k);
+assignin('base','z',z);
+clc
+disp('Pokretanje simulinka');
+set_param('MehanickiSistem1','SimulationCommand','Start');
+pause(5);

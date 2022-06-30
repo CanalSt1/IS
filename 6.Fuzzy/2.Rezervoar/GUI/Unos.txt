@@ -1,0 +1,12 @@
+mu1= str2double(get(handles.edit2,'string'));
+ mi1= str2double(get(handles.edit3,'string'));
+ mu2=mi1;
+ mi2= str2double(get(handles.edit4,'string'));
+ A1= str2double(get(handles.edit5,'string'));
+ A2= str2double(get(handles.edit6,'string'));
+assignin('base', 'mu1', mu1);
+assignin('base', 'mi1', mi1);
+assignin('base', 'mu2', mu2);
+assignin('base', 'mi2', mi2);
+assignin('base', 'A1', A1);
+assignin('base', 'A2', A2);

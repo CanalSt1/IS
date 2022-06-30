@@ -1,0 +1,25 @@
+Fuzzy = get(handles.togglebutton1,'Value');
+PID = get(handles.togglebutton2,'Value');
+FiP = get(handles.togglebutton3,'Value');
+
+d1 = evalin('base','out.silaFuzzy');
+d2 = evalin('base','out.silaPID');
+axes(handles.axes1)
+if Fuzzy == 1
+        PID=0;
+        FiP=0;
+        plot([0:length(d1)-1],d1);
+        axis tight;
+       
+elseif PID == 1
+        FiP=0;
+        Fuzzy=0;
+        plot([0:length(d2)-1],d2);
+        axis tight;
+elseif FiP ==1
+       Fuzzy=0;
+       PID=0;
+       plot([0:length(d2-d1)-1],d2-d1); %Nemam pojma da li je tacno
+       axis tight;
+        
+end

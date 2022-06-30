@@ -1,0 +1,50 @@
+[System]
+Name='fazzi'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=6
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='nivo'
+Range=[-1 1]
+NumMFs=5
+MF1='nizak':'trapmf',[-2 -1 -0.9 0]
+MF2='maloVisok':'trimf',[-0.2 0.4 0.8]
+MF3='maloNizak':'trapmf',[-0.8 -0.6 -0.4 -0.2]
+MF4='dobar':'trimf',[-0.3 0 0.3]
+MF5='visok':'trimf',[0 0.9 1.2]
+
+[Input2]
+Name='promjena'
+Range=[-0.27 0.27]
+NumMFs=3
+MF1='negativna':'trapmf',[-0.4745 -0.4158 -0.3822 -0.216]
+MF2='neznatna':'trimf',[-0.1 0 0.1]
+MF3='pozitivna':'trapmf',[0.1 0.2077 0.27 0.3738]
+
+[Output1]
+Name='ventil'
+Range=[-0.55 0.55]
+NumMFs=7
+MF1='zatvoriPolako':'trimf',[-0.55 -0.4 -0.25]
+MF2='bezPromjene':'trimf',[-0.1375 0 0.1375]
+MF3='otvoriPolako':'trimf',[0.25 0.4 0.55]
+MF4='zatvoriBrzo':'trimf',[-0.825 -0.55 -0.275]
+MF5='maloZatvori':'trimf',[-0.35 -0.2 -0.05]
+MF6='maloOtvori':'trimf',[0.05 0.2 0.35]
+MF7='otvoriBrzo':'trimf',[0.275 0.55 0.825]
+
+[Rules]
+5 0, 7 (1) : 1
+1 1, 4 (1) : 1
+4 3, 3 (1) : 1
+4 2, 1 (1) : 1
+3 2, 5 (1) : 1
+2 2, 6 (1) : 1

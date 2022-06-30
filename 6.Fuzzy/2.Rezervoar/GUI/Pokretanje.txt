@@ -1,0 +1,86 @@
+direktno = get(handles.togglebutton3,'Value');
+pid = get(handles.togglebutton4,'Value');
+fuzzy = get(handles.togglebutton5,'Value');
+rezervoar1 = get(handles.rezervoar1,'Value');
+rezervoar2 = get(handles.rezervoar2,'Value');
+
+if rezervoar1 == 1
+    axes(handles.a1);
+    legenda = '';
+    if direktno==1
+        d1 = evalin('base','d1');
+        plot([0:length(d1)-1],d1);
+        hold on;
+    end
+    if pid==1
+        p1 = evalin('base','p1');
+        plot([0:length(p1)-1],p1);
+        hold on;
+    end
+    if fuzzy==1
+        f = evalin('base','f');
+        plot([0:length(f)-1],f);
+    end
+    if (direktno==0) && (pid==0) && (fuzzy==1)
+        legend('Fuzzy');
+    end
+     if (direktno==0) && (pid==1) && (fuzzy==0)
+        legend('PID');
+     end
+    if (direktno==0) && (pid==1) && (fuzzy==1)
+        legend('PID','Fuzzy');
+    end
+     if (direktno==1) && (pid==0) && (fuzzy==0)
+        legend('Direktno');
+     end
+    if (direktno==1) && (pid==0) && (fuzzy==1)
+        legend('Direktno','Fuzzy');
+    end
+    if (direktno==1) && (pid==1) && (fuzzy==0)
+        legend('Direktno','PID');
+    end
+    if (direktno==1) && (pid==1) && (fuzzy==1)
+        legend('Direktno','PID','Fuzzy');
+    end
+end
+
+
+if rezervoar2 == 1
+    axes(handles.a2);
+    if direktno==1
+        d2 = evalin('base','d2');
+        plot([0:length(d2)-1],d2);
+        hold on;
+    end
+    if pid==1
+        p2 = evalin('base','p2');
+        plot([0:length(p2)-1],p2);
+        hold on;
+    end
+    if fuzzy==1
+        f = evalin('base','f');
+        plot([0:length(f)-1],f);
+        
+    end
+    if (direktno==0) && (pid==0) && (fuzzy==1)
+        legend('Fuzzy');
+    end
+     if (direktno==0) && (pid==1) && (fuzzy==0)
+        legend('PID');
+     end
+    if (direktno==0) && (pid==1) && (fuzzy==1)
+        legend('PID','Fuzzy');
+    end
+     if (direktno==1) && (pid==0) && (fuzzy==0)
+        legend('Direktno');
+     end
+    if (direktno==1) && (pid==0) && (fuzzy==1)
+        legend('Direktno','Fuzzy');
+    end
+    if (direktno==1) && (pid==1) && (fuzzy==0)
+        legend('Direktno','PID');
+    end
+    if (direktno==1) && (pid==1) && (fuzzy==1)
+        legend('Direktno','PID','Fuzzy');
+    end
+end

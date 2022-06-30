@@ -1,0 +1,70 @@
+[System]
+Name='restoran'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=10
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='lokacija'
+Range=[0 5]
+NumMFs=3
+MF1='losa':'trapmf',[-1.68 -0.081 0.999 2.01719576719577]
+MF2='dobra':'trimf',[1.02 2.5 4.00132275132275]
+MF3='odlicna':'trapmf',[2.96957671957672 3.97 5.2 6.8]
+
+[Input2]
+Name='kvalitet-hrane'
+Range=[0 5]
+NumMFs=5
+MF1='los':'trapmf',[-1.8 -0.2 0.2 1.43518518518519]
+MF2='zadovoljavajuc':'trimf',[0.743 1.59 2.255291005291]
+MF3='odlican':'trapmf',[3.97486772486772 4.8 5.2 6.8]
+MF4='dobar':'trimf',[1.57 2.5 3.36640211640212]
+MF5='vrlodobar':'trimf',[3.03571428571429 3.78 4.49]
+
+[Input3]
+Name='kvalitet-usluge'
+Range=[0 5]
+NumMFs=3
+MF1='los':'trapmf',[-1.8 -0.2 0.2 1.8]
+MF2='dobar':'trimf',[1.12 2.63888888888889 4.08]
+MF3='odlican':'trapmf',[3.72354497354497 4.8 5.2 6.8]
+
+[Input4]
+Name='cistoca'
+Range=[0 5]
+NumMFs=5
+MF1='losa':'trapmf',[-0.94 -0.192 1.06 2.44047619047619]
+MF2='zadovoljavajuca':'trimf',[1.14412698412698 2.07412698412698 2.97412698412698]
+MF3='odlicna':'trapmf',[4.47751322751323 4.8 5.2 6.8]
+MF4='dobra':'trimf',[2.88968253968254 3.21968253968254 3.73968253968254]
+MF5='vrlodobra':'trimf',[3.68 4.09391534391534 4.56]
+
+[Output1]
+Name='broj-zvjezdica'
+Range=[0 5]
+NumMFs=5
+MF1='1':'trimf',[0 1 2]
+MF2='2':'trimf',[1 2 3]
+MF3='3':'trimf',[2 3 4]
+MF4='4':'trimf',[3 4 5]
+MF5='5':'trimf',[4 5 6]
+
+[Rules]
+0 0 0 1, 1 (1) : 1
+0 1 0 0, 1 (1) : 1
+1 0 1 0, 1 (1) : 1
+0 2 0 2, 2 (1) : 1
+2 2 2 3, 3 (1) : 1
+2 2 2 2, 2 (1) : 1
+3 3 3 3, 5 (1) : 1
+3 5 3 5, 5 (1) : 1
+2 5 2 5, 4 (1) : 1
+2 4 2 4, 3 (1) : 1
