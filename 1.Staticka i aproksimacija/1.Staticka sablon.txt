@@ -1,0 +1,43 @@
+STATIČKE NEURONSKE MREŽE
+-nemaju povratne veze (nema povratka u više slojeve)
+-kreiranje neuronske mreže se vrši naredbom:
+
+net=newff(PR, [S1, S2, ..., SN], {'TF1','TF2',..'TFN'},'BFT');
+
+gdje je: 
+PR – min i max vrijednost funkcije
+S – velicina sloja
+TF – aktivacijska funkcija sloja
+BTF – algoritam učenja, metoda učenja (treniranje)
+
+Naredbe za treniranje nuronske mreže:
+npr. neke vrijednosti za parametre
+1) net.performFcn='sse'; (funkcija performasni sse)
+2) net.trainParam.goal=30; (ukupna kvadratna pogrška izlaza)
+3) net.trainParam.show=10; (frekvencija prikaza rezultata u kvadratnom prozoru)
+4) net.trainParam.epochs=1000; (maximalni broj epoha, iteracija-vrijeme treniranja neuronske 
+mreže)
+5) net.trainParam.me=0.95; (momentna konstanta)
+6) net.trainParam.lr=0.05; (brzina učenja);
+
+
+x=0:0.05:2; %vrijeme
+y=humps(x); %funkcija
+
+plot(x,y,'x');
+grid ON
+%kreiranje neuronske mreže
+net=newff([0 2],[5,1],{'tansig','purelin'},'traingd');
+%definiranje parametara mreže
+net.trainParam.epochs=1000;
+net.trainParam.show=10;
+net.trainParam.lr=0.05;
+net.trainParam.goal=1e-3; 
+%treniranje neuronske mreže
+net1=train(net,x,y);
+%pohrana vrijednosti - simulacija
+a=sim(net1,x);
+
+%iscrtavanje rezultata i poredenje
+plot(x,a,'r',x,y,'g');
+legend('neuronska mreza','humps funkcija');
